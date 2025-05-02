@@ -10,10 +10,10 @@ def gen_a (x, k):
         x*= (x**2/(2*i*(2*i-1)))
         yield x
 
-# x = 2
-# k = 2
-# for i in gen_a(x, k):
-#     print (i)
+x = 2
+k = 5
+for i in gen_a(x, k):
+    print (f'a) {i}')
 
 
 
@@ -29,10 +29,10 @@ def gen_b(k):
          yield P
 
 
-# k = 2
-# for i in gen_b(k):
-#     P = i
-# print(P)
+q = 2
+for i in gen_b(q):
+    P = i
+print(f'b) {P}')
 
 
 
@@ -51,11 +51,11 @@ def gen_c(n, a, b):
         d_1 = d
         yield d
 
-# a = 1
-# b = 2
-# n = 3
-# for i in gen_c(n, a, b):
-#     print(i)
+a = 1
+b = 2
+n = 3
+for i in gen_c(n, a, b):
+    print(f'c) {i}')
 
 
 
@@ -90,12 +90,12 @@ def gen_d_S(n):
             S += a/2**e
             yield S
 
-# n = 3
-#
-# for i in gen_d_S(n):
-#     S = i
-#
-# print(S)
+w = 3
+
+for i in gen_d_S(w):
+    S = i
+
+print(f'd) {S}')
 
 
 
@@ -110,9 +110,9 @@ def gen_e(x, n):
         T *= x**2*(2*k-1)/(2*k+1)
         yield T
 
-x = 2
-k = 4
+r = 2
+t = 4
 
-for i in gen_e(x, k):
+for i in gen_e(r, t):
     T = i
 print(f'T={T}')
