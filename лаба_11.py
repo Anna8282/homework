@@ -119,7 +119,7 @@ for i in gen_e(r, t):
     T = i
 print(f'T={T}')
 
-with open("output.txt", "w") as file:
+with open("output_11.txt", "w") as file:
     file.write('a)')
     for i in gen_a(x, k):
         file.write(f"{i}\n")
