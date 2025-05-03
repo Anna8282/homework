@@ -127,18 +127,18 @@ with open("output.txt", "w") as file:
     file.write('b)')
     for i in gen_b(q):
         P = i
-        file.write(f'{P}')
+        file.write(f'{P}\n')
 
     file.write('c)')
     for i in gen_c(n, a, b):
-        file.write(f'c) {i}')
+        file.write(f'c) {i}\n')
 
     file.write('d)')
     for i in gen_d_S(w):
         S = i
-    file.write(f'{S}')
+    file.write(f'{S}\n')
 
     file.write('e)')
     for i in gen_e(r, t):
         T = i
-    file.write(f'T={T}')
+    file.write(f'T={T}\n')
