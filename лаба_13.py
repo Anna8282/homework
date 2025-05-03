@@ -132,12 +132,10 @@ class MyClass:
 
 if __name__ == "__main__":
     lst = construct()
-    for obj in lst:
-        if isIterable(obj):
-            print(f"Об'єкт {type(obj)} підтримує ітерацію: {obj}")
-            try:
-                for it in obj:
-                    print(it)
-            except Exception as e:
-                print(f"Помилка під час ітерації: {e}")
-            print()
+    with open("output_13.txt", "w", encoding="utf-8") as f:
+        for obj in lst:
+            if isIterable(obj):
+                print(f"Object: {obj}", file=f)
+                for item in obj:
+                    print(f"  {item}", file=f)
+                print(file=f)
