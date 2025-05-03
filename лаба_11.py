@@ -16,7 +16,6 @@ for i in gen_a(x, k):
     print (f'a) {i}')
 
 
-
 ######### b) P_k = P_(k-1)*(1 + 1/k**2)
 ############ k >= 1 P_1 = 2
 
@@ -30,9 +29,12 @@ def gen_b(k):
 
 
 q = 2
+q = 2
 for i in gen_b(q):
     P = i
 print(f'b) {P}')
+
+
 
 
 
@@ -116,3 +118,27 @@ t = 4
 for i in gen_e(r, t):
     T = i
 print(f'T={T}')
+
+with open("output.txt", "w") as file:
+    file.write('a)')
+    for i in gen_a(x, k):
+        file.write(f"{i}\n")
+
+    file.write('b)')
+    for i in gen_b(q):
+        P = i
+        file.write(f'{P}')
+
+    file.write('c)')
+    for i in gen_c(n, a, b):
+        file.write(f'c) {i}')
+
+    file.write('d)')
+    for i in gen_d_S(w):
+        S = i
+    file.write(f'{S}')
+
+    file.write('e)')
+    for i in gen_e(r, t):
+        T = i
+    file.write(f'T={T}')
