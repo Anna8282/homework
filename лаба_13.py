@@ -130,9 +130,17 @@ def construct():
 
 
 def isIterable(obj):
-    # TODO: Реалізуйте тут перевірку того, що об'єкт obj
-    #       підтримує ітераційний протокол
-    return False
+    return hasattr(obj, '__iter__')
+
+for obj in construct():
+    if isIterable(obj):
+        print(f'{obj}')
+        for item in obj:
+            print(f'{item}')
+        print()
+
+
+
 
 
 if __name__ == "__main__":
