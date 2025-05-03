@@ -151,6 +151,13 @@ class MyClass:
         print(self.value)
 
 
+def decor(f):
+    def _decor(*arg, **kw):
+        print(f'Function:{f.__name__}')
+        return f(*arg, **kw)
+    return _decor
+
+
 
 
 if __name__ == "__main__":
