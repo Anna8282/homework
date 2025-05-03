@@ -133,6 +133,15 @@ def construct():
 ############### МОЇ ЗМІНИ ################
 ##########################################
 
+def decor(f):
+    def _decor(*arg, **kw):
+        print(f'Function:{f.__name__}')
+        return f(*arg, **kw)
+    return _decor
+
+
+
+@decor
 def isIterable(obj):
     return hasattr(obj, '__iter__')
 
@@ -143,6 +152,7 @@ for obj in construct():
             print(f'{item}')
         print()
 
+
 class MyClass:
     def __init__(self, value):
         self.value = value
@@ -151,11 +161,7 @@ class MyClass:
         print(self.value)
 
 
-def decor(f):
-    def _decor(*arg, **kw):
-        print(f'Function:{f.__name__}')
-        return f(*arg, **kw)
-    return _decor
+
 
 
 
