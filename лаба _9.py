@@ -26,6 +26,12 @@ class Rational:
 
         # визначити знаменник нсд, зведення до нескоротного дробу
 
+    def __setitem__(self, key, value):
+        if not isinstance(key, int):  # перевіряє чи key лежить в інт
+            raise KeyError
+        if key in self.__dict:  # якщо таке значення в словнику вже є
+            raise PermissionError  # помилка заповнення
+        self.__dict[key] = value
 
-num = Rational(1, 2)
+num = Rational(3, 4)
 print(num())
