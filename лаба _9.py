@@ -33,5 +33,14 @@ class Rational:
             raise PermissionError  # помилка заповнення
         self.__dict[key] = value
 
+def __getitem__(self, item):
+    if item == 'n':
+        return self._n
+    elif item == 'd'
+        return self.__dict
+    else:
+        raise KeyError
+
+
 num = Rational(3, 4)
 print(num())
