@@ -27,16 +27,22 @@ class Rational:
         # визначити знаменник нсд, зведення до нескоротного дробу
 
     def __setitem__(self, key, value):
-        if not isinstance(key, int):  # перевіряє чи key лежить в інт
+        if not isinstance(value, int):
+            raise TypeError
+        if key == "n":
+            self.n = value
+        elif key == "d":
+            if value == 0:
+                raise ValueError
+            self.d = value
+        else:
             raise KeyError
-        if key in self.__dict:  # якщо таке значення в словнику вже є
-            raise PermissionError  # помилка заповнення
-        self.__dict[key] = value
+        self._reduce()
 
 def __getitem__(self, item):
     if item == 'n':
         return self._n
-    elif item == 'd'
+    elif item == 'd':
         return self.__dict
     else:
         raise KeyError
