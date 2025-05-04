@@ -5,12 +5,21 @@ class Rational:
     def __init__(self, n, d):
         self._n = n
         self._d = d
+        self._reduce()
 
     def __str__(self):
         return str(self._n) + '/' + str(self._d)
 
     def __call__(self):  # круглі дужки
         return self._n / self._d
+
+    def _reduce(self):
+        g = gcd(self._n, self._d)
+        self._n //= g
+        self._d //= g
+        if self._d < 0:
+            self._n *= -1
+            self._d *= -1
 
     def __add__(self, other):
         result = Rational(0, 1)
@@ -46,6 +55,47 @@ def __getitem__(self, item):
         return self.__dict
     else:
         raise KeyError
+
+
+def parse_token(token):
+    if '/' in token:
+        a, b = map(int, token.split('/'))
+        return Rational(a, b)
+    else:
+        return Rational(int(token), 1)
+
+def evaluate_expression(line):
+    tokens = line.strip().split()
+    if not tokens:
+        return None
+
+    result = parse_token(tokens[0])
+    i = 1
+    while i < len(tokens):
+        op = tokens[i]
+        right = parse_token(tokens[i + 1])
+
+        if op == '+':
+            result = result + right
+        elif op == '-':
+            result = result - right
+        elif op == '*':
+            result = result * right
+        elif op == '/':
+            result = result / right
+        else:
+            raise ValueError(f"{op}")
+        i += 2
+    return result
+
+
+with open('input01.txt', 'r') as infile, open('output01.txt', 'w') as outfile:
+    for line in infile:
+        try:
+            res = evaluate_expression(line)
+            outfile.write(f"{res} = {res()}\n")
+        except Exception as e:
+            outfile.write(f"{e}\n")
 
 
 num = Rational(3, 4)
